@@ -1,0 +1,6 @@
+/node_modules
+/config/tg.token
+/storage/images
+/storage/action_log.csv
+/storage/users.txt
+txt

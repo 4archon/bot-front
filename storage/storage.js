@@ -59,7 +59,9 @@ class Storage {
         const number = this.cache.getNumber(id);
         const shiftType = this.cache.getShiftType(id).replaceAll(" ", "");
         const shiftTransport = this.cache.getShiftTransport(id).replaceAll(" ", "");
-        const shiftBeginDate = this.cache.getShiftDate(id).toLocaleString('ru-RU').replace(/[,.]/g, ":").replace(/[ ]/, "");
+        const shiftBeginDate = this.cache.getShiftDate(id).toLocaleString('ru-RU', {
+            timeZone: 'Europe/Moscow'
+        }).replace(/[,.]/g, ":").replace(/[ ]/, "");
 
 
         const folderName = `${number}_${shiftType}_${shiftTransport}_${shiftBeginDate}_${shift_id}`;

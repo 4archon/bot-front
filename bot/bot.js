@@ -24,8 +24,8 @@ async function contact(ctx) {
         this.recovery(ctx);
 	} else {
         const support_nick = "ultradop_support";
-        const support_message = `Ошибка: нет номера в базе. Номер: ${number}`
-        .replace(/ /g, "+");
+        let support_message = `Ошибка: нет номера в базе. Номер: ${number}`;
+        support_message = encodeURIComponent(support_message);
 		ctx.replyWithHTML(`Номер телефона не зарегистрирован. \
             Для обращения в поддержку нажмите \
             <a href="https://t.me/${support_nick}?text=${support_message}">сюда</a> \
@@ -158,7 +158,7 @@ async function closeShift(ctx) {
     }
 
     ctx.reply("Теперь вы можете отправлять фотографии.\
-        Закройте смену по кнопке ниже в конце смены:",
+        Закройте смену по кнопке ниже в конце смены:".replace(/    /g, ""),
         Markup.inlineKeyboard([
         [Markup.button.callback("Закрыть смену", "shift_close")],
     ]));

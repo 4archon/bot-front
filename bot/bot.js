@@ -25,7 +25,7 @@ async function contact(ctx) {
 	} else {
         const support_nick = "ultradop_support";
         const support_message = `Ошибка: нет номера в базе. Номер: ${number}`
-        .replace(/ /g, "%20");
+        .replace(/ /g, "+");
 		ctx.replyWithHTML(`Номер телефона не зарегистрирован. \
             Для обращения в поддержку нажмите \
             <a href="https://t.me/${support_nick}?text=${support_message}">сюда</a> \

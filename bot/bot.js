@@ -23,7 +23,14 @@ async function contact(ctx) {
 		await ctx.reply("Ваш номер телефона зарегестрирован", Markup.removeKeyboard());
         this.recovery(ctx);
 	} else {
-		ctx.reply("Ваш номер телефона не зарегистрирован", Markup.removeKeyboard());
+        const support_nick = "ultradop_support";
+        const support_message = `Ошибка: нет номера в базе. Номер: ${number}`
+        .replace(/ /g, "%20");
+		ctx.replyWithHTML(`Номер телефона не зарегистрирован. \
+            Для обращения в поддержку нажмите \
+            <a href="https://t.me/${support_nick}?text=${support_message}">сюда</a> \
+            и отправьте сообщение`.replace(/    /g, ""),
+            Markup.removeKeyboard());
 	}
 }
 
